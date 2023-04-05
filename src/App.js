@@ -520,14 +520,14 @@ function App() {
 
       <section className="max-w-[90vw] md:flex hidden lg:max-w-[85vw] my-[6rem] md:h-[50vh] lg:h-[65vh] w-full mx-auto  flex-wrap md:flex-nowrap justify-between bg-[#232038] rounded-[56px] lg:py-[4rem] py-8 px-12 lg:px-[7rem]">
         <div className=" lg:w-[40%] xl-w-1/2 flex flex-col justify-between">
-          <h1 className= "text-lg md:text-2xl lg:text-4xl xl:text-[4rem] font-medium capitalize text-white">
+          <h1 className= "text-lg md:text-2xl lg:text-4xl xl:text-[3rem] font-medium capitalize text-white">
             start your journey with us now
           </h1>
           <button className="justify-self-end capitalize bg-blueC text-white w-2/3 xl:w-1/2 py-[0.9rem] px-[2rem] rounded-[4rem] text-base xl:text-[1.5rem] border-none font-medium shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-90">
             Start Now
           </button>
         </div>
-        <div className="bg-[#e0ff22] place-self-center rounded-full flex items-center justify-center xl:h-[80%]  lg:h-[100%] h-[80%] px-2 lg:px-[6.8%] xl:px-[8.8%]">
+        <div className="bg-[#e0ff22] place-self-center rounded-full flex items-center justify-center xl:h-[80%]  lg:h-[100%] h-[80%] px-2 lg:px-[7.8%] xl:px-[4%]">
           <svg
             width="66"
             height="95"
