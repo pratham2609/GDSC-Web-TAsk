@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <nav>
       <div className="max-w-[100vw] pr-5 md:px-[6%] py-1 lg:py-3 w-full flex justify-between items-center bg-white rounded-xl shadow-3xl">
-        <div className="xl:w-1/2 flex :justify-between gap-1 lg:gap-3 items-center">
+        <div className="xl:w-1/2 flex justify-between gap-1 lg:gap-2 items-center">
           <div className="flex items-center xl:scale-100 lg:scale-90 md:scale-75 scale-50 justify-start place-self-start">
             <svg
               width="19"

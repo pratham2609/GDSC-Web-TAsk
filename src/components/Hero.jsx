@@ -17,7 +17,7 @@ export default function Hero() {
         </div>
       </div>
       <div className=" flex justify-center w-6/12 mx-auto md:mx-0 md:justify-end items-center">
-        <img src={i} alt="" className="place-self-center scale-125" />
+        <img src={i} alt="" className="place-self-center scale-[1.4]" />
       </div>
     </section>
   );
