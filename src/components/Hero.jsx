@@ -3,7 +3,7 @@ import i from "../assets/Mediamodifier-Design.svg";
 import "./Components.css";
 export default function Hero() {
   return (
-    <section className="max-w-[90vw] lg:max-w-[85vw] xl:mt-0 mt-4 xl:max-h-screen gap-3 md:gap-0 h-full w-full flex md:flex-nowrap flex-wrap-reverse justify-between items-center mx-auto relative">
+    <section className="max-w-[90vw] lg:max-w-[85vw] xl:mt-0 mt-3 xl:max-h-screen gap-3 md:gap-0 h-full w-full flex md:flex-nowrap flex-wrap-reverse justify-between items-center mx-auto relative">
       <div className="flex flex-col justify-around w-full items-center md:items-start md:w-[35%] gap-3 md:gap-5 lg:gap-3">
         <h1 className="text-[1.1rem] md:text-4xl lg:text-[4rem] xl:text-[5rem] font-semibold md:leading-[3.5rem] xl:leading-[6.9rem]">We Take Care of Your Brand</h1>
         <p className="text-[0.7rem] md:text-xs lg:text-sm xl:text-base md:text-start text-center font-normal md:leading-[1.5rem] opacity-60">

@@ -2,10 +2,10 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="mt-[5rem] w-screen">
+    <div className="mt-10 xl:mt-[5rem] w-screen">
       <div className="bg-[#fafafa]">
-        <div className="w-full max-w-[85vw] mx-auto grid grid-cols-2 gap-[2rem] py-[4rem] items-center">
-          <div className="flex flex-col gap-[1.5rem]">
+        <div className="w-full max-w-[85vw] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[2rem] py-8 xl:py-[4rem] items-center">
+          <div className="flex flex-col gap-2 lg:gap-[1.5rem] order-2 md:order-1">
             <div className="flex items-center">
               <svg
                 width="19"
@@ -13,6 +13,7 @@ export default function Footer() {
                 viewBox="0 0 19 19"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="lg:w-[1.2rem] w-[0.8rem]"
               >
                 <circle cx="9.5" cy="9.5" r="9.5" fill="#3461FF" />
               </svg>
@@ -22,16 +23,18 @@ export default function Footer() {
                 viewBox="0 0 18 21"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="lg:w-[1.2rem]  w-[0.8rem]"
+
               >
                 <path
                   d="M16.5192 9.63622C17.1807 10.0221 17.1807 10.9779 16.5192 11.3638L1.50387 20.1227C0.837211 20.5116 -8.75572e-07 20.0308 -8.41836e-07 19.259L-7.61032e-08 1.74104C-4.23671e-08 0.969246 0.837213 0.488374 1.50387 0.877257L9 5.25L16.5192 9.63622Z"
                   fill="#3461FF"
                 />
               </svg>
-              <p className="text-[1.83rem] items-center font-helvetica font-bold">Embrace</p>
+              <p className="md:text-base xl:text-[1.83rem] items-center font-helvetica font-bold">Embrace</p>
             </div>
-            <h1 className="font-medium text-base">Los Angeles, California, USA</h1>
-            <div className="icons">
+            <h1 className="font-medium md:text-sm text-xs xl:text-base">Los Angeles, California, USA</h1>
+            <div className="flex">
               <svg
                 width="28"
                 height="28"
@@ -69,30 +72,30 @@ export default function Footer() {
                 />
               </svg>
             </div>
-            <button className="capitalize bg-blueC w-1/2 text-white py-[0.9rem] px-[2rem] rounded-[4rem] text-[1.5rem] font-medium mt-[1.5rem] shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-90 hover:bg-black">contact us</button>
+            <button className="capitalize bg-blueC w-1/2 text-white lg:py-[0.9rem] px-3 py-2 lg:px-[2rem] rounded-[4rem] mx-auto md:mx-0 text-[0.75rem] md:text-lg xl:text-[1.5rem] font-medium mt-1 md:mt-4 lg:mt-[1.5rem] shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-90 hover:bg-black">contact us</button>
           </div>
-          <div className="grid grid-cols-3 w-[80%] gap-[3rem] justify-start cursor-pointer">
-            <p className="font-medium text-base cursor-pointer">Work With Us</p>
-            <p className="font-medium text-base cursor-pointer">Private Coaching</p>
-            <p className="font-medium text-base cursor-pointer">About Us</p>
-            <p className="font-medium text-base cursor-pointer">Advertise With Us</p>
-            <p className="font-medium text-base cursor-pointer">Our Work</p>
-            <p className="font-medium text-base cursor-pointer">FAQs</p>
-            <p className="font-medium text-base cursor-pointer">Support Us</p>
-            <p className="font-medium text-base cursor-pointer">Our Commitment</p>
-            <p className="font-medium text-base cursor-pointer">Report a Bug</p>
-            <p className="font-medium text-base cursor-pointer">Business Advices</p>
-            <p className="font-medium text-base cursor-pointer">Our Team</p>
+          <div className="grid order-1 md:order-2 grid-cols-3 w-full md:w-[80%]  gap-2 md:gap-6 xl:gap-[3rem] justify-start cursor-pointer">
+            <p className="font-medium text-[0.8rem] md:text-xs lg:text-sm xl:text-base cursor-pointer">Work With Us</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">Private Coaching</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">About Us</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">Advertise With Us</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">Our Work</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">FAQs</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">Support Us</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">Our Commitment</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">Report a Bug</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">Business Advices</p>
+            <p className="font-medium md:text-xs text-[0.7rem] sm:text-[0.8rem] lg:text-sm xl:text-base cursor-pointer">Our Team</p>
           </div>
         </div>
       </div>
 
       <div className="bg-black opacity-80">
-        <div className="mx-auto max-w-[85vw] py-[2rem] w-full flex justify-between items-center">
-          <p className="font-medium text-[14px] text-white">© 2022 Embrace, Inc. - All Rights Reserved</p>
-          <div className="flex gap-[7rem] items-center">
-            <p className="font-medium text-[14px] text-white cursor-pointer">Terms of use</p>
-            <p className="font-medium text-[14px] text-white cursor-pointer">Privacy policy </p>
+        <div className="mx-auto max-w-[85vw] py-4 lg:py-[2rem] w-full flex justify-between items-center">
+          <p className="font-medium  text-[0.6rem] md:text-xs xl:text-[14px] text-white">© 2022 Embrace, Inc. - All Rights Reserved</p>
+          <div className="flex gap-3 lg:gap-[7rem] items-center">
+            <p className="font-medium text-[0.6rem] md:text-xs xl:text-[14px] text-white cursor-pointer">Terms of use</p>
+            <p className="font-medium text-[0.6rem] md:text-xs xl:text-[14px] text-white cursor-pointer">Privacy policy </p>
           </div>
         </div>
       </div>

@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "./Components.css";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross2 } from "react-icons/rx"
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+  const hide = () => setIsOpen(false);
+  const show = () => setIsOpen(true);
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setIsOpen(false);
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+  const uref = useRef(null);
+  useOutsideAlerter(uref);
   return (
     <nav>
       <div className="max-w-[100vw] pr-5 md:px-[6%] py-1 lg:py-3 w-full flex justify-between items-center bg-white rounded-xl shadow-3xl">
-        <div className="xl:w-1/2 flex lg:justify-between gap-3 items-center">
+        <div className="xl:w-1/2 flex :justify-between gap-1 lg:gap-3 items-center">
           <div className="flex items-center xl:scale-100 lg:scale-90 md:scale-75 scale-50 justify-start place-self-start">
             <svg
               width="19"
@@ -30,18 +55,27 @@ export default function Navbar() {
             </svg>
             <p className="text-[1.83rem] items-center font-helvetica font-bold">Embrace</p>
           </div>
-          <div className="flex justify-between items-center gap-[2rem]">
-            <a href='/' className=" text-sm xl:text-base hidden lg:block font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">How it Works</a>
-            <a href='/' className="text-sm xl:text-base hidden lg:block font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">Our Work</a>
-            <a href='/' className="text-sm xl:text-base hidden lg:block font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">Pricing</a>
-            <a href='/' className="text-sm xl:text-base hidden lg:block font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">About</a>
+          <div className="flex justify-between items-center gap-3 lg:gap-[2rem]">
+            <a href='/' className=" text-[0.7rem] xl:text-base hidden md:block font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">How it Works</a>
+            <a href='/' className="text-[0.7rem] xl:text-base hidden md:block font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">Our Work</a>
+            <a href='/' className="text-[0.7rem] xl:text-base hidden md:block font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">Pricing</a>
+            <a href='/' className="text-[0.7rem] xl:text-base hidden md:block font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">About</a>
           </div>
         </div>
-        <div>
-          <button className="bg-blueC hidden lg:block text-white py-[0.7rem] px-[1rem] rounded-[4rem] text-base font-gen font-medium shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-[1.08] border-none">Try It Now</button>
-        </div>
-        <GiHamburgerMenu className='block lg:hidden' />
+        <button onClick={toggle}><GiHamburgerMenu className={`${isOpen ? "hidden" : "block"} block md:hidden`} /></button>
+        <button className="bg-blueC hidden md:block text-white py-2 px-3 lg:py-[0.7rem] lg:px-[1rem] rounded-[4rem] text-[0.8rem] lg:text-sm xl:text-base font-gen font-medium shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-[1.08] border-none">Try It Now</button>
+
+
       </div>
-    </nav>
+      <div ref={uref} className={`${isOpen ? "flex" : "hidden"} py-10 px-4 gap-3 fixed w-2/3  bg-white z-50 transition-all duration-300 ease-linear flex-col flex items-start top-0 left-0 h-screen`}>
+        <button onClick={toggle}><RxCross2 className={`${isOpen ? "block" : "hidden"} block md:hidden`} /></button>
+        <a href='/' onClick={toggle} onBlur={hide} onFocus={show} className=" text-sm xl:text-base font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">How it Works</a>
+        <a href='/' onClick={toggle} onBlur={hide} onFocus={show} className="text-sm xl:text-base font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">Our Work</a>
+        <a href='/' onClick={toggle} onBlur={hide} onFocus={show} className="text-sm xl:text-base font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">Pricing</a>
+        <a href='/' onClick={toggle} onBlur={hide} onFocus={show} className="text-sm xl:text-base font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">About</a>
+        <button onClick={toggle} onBlur={hide} onFocus={show} className="bg-blueC text-white py-2 px-3 lg:py-[0.7rem] lg:px-[1rem] rounded-[4rem] text-[0.8rem] lg:text-sm xl:text-base font-gen font-medium shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-[1.08] border-none">Try It Now</button>
+
+      </div>
+    </nav >
   )
 }

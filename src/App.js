@@ -22,6 +22,7 @@ import sec8img2 from "./assets/sec82.svg";
 import sec8img3 from "./assets/sec83.svg";
 import Footer from "./components/Footer";
 import { useState } from "react";
+import Card from "./components/Card";
 
 function App() {
   const data = [
@@ -202,6 +203,7 @@ function App() {
       setIndex((index + 1) % datas.length);
     }
   }
+
   return (
     <main className="relative">
       <Navbar />
@@ -284,7 +286,10 @@ function App() {
         <div className="w-full md:w-[50%] grid grid-cols-2 gap-2 md:gap-5 xl:gap-[2rem] justify-between items-center">
           {sec4.map((val) => {
             return (
-              <div className="flex flex-col md:items-start items-center gap-1 xl:gap-4" key={val.id}>
+              <div
+                className="flex flex-col md:items-start items-center gap-1 xl:gap-4"
+                key={val.id}
+              >
                 {val.svg}
                 <p className="text-xs md:text-base lg:text-[1.5rem] xl:text-[28px] font-medium lg:leading-[2.5rem]">
                   {val.head}
@@ -314,7 +319,11 @@ function App() {
                 className="flex hover:scale-110 transition-all duration-300 ease-in flex-col gap-[0.3rem] xl:gap-[0.8rem] items-center"
                 key={val.id}
               >
-                <img src={val.src} alt="img" className="w-[60%] md:w-[70%] lg:w-[80%] xl:w-full"/>
+                <img
+                  src={val.src}
+                  alt="img"
+                  className="w-[60%] md:w-[70%] lg:w-[80%] xl:w-full"
+                />
                 <p className="text-xs md:text-base lg:text-[1.5rem] xl:text-[28px] font-medium lg:leading-[2.5rem]">
                   {val.head}
                 </p>
@@ -334,7 +343,7 @@ function App() {
         <img
           src={sec6img}
           alt="img"
-          className="h-[100%] absolute top-0 left-0 z-0"
+          className="h-[100%] invisible sm:visible absolute top-0 left-0 z-0"
         />
         <div className=" max-w-[85vw] w-full mx-auto flex md:flex-row flex-col flex-wrap md:flex-nowrap justify-between">
           <h1 className="text-[1.5rem] lg:text-[2.1rem] xl:text-[2.5rem] capitalize z-10 w-full md:w-[30%] text-white">
@@ -422,17 +431,17 @@ function App() {
         </div>
       </section>
 
-      <section className="max-w-[85vw] my-[6rem] w-full mx-auto flex  flex-col gap-[3rem]">
-        <div className="flex justify-between">
+      <section className="max-w-[90vw] md:max-w-[85vw] my-3 md:my-12  lg:my-[6rem] w-full mx-auto flex  flex-col gap-[3rem]">
+        <div className="flex justify-center lg:justify-between">
           <div>
-            <h1 className="text-[2.5rem] font-medium leading-[3.5rem] capitalize z-10">
+            <h1 className="text-[1.5rem] md:text-3xl lg:text-[2.1rem] xl:text-[2.5rem] sm:text-start text-center font-semibold md:font-medium capitalize z-10">
               What Our Client Said about us
             </h1>
-            <p className="text-[18px] font-normal leading-[1.8rem] opacity-60 ">
+            <p className="text-[0.7rem] md:text-base lg:text-[18px] text-center lg:text-start font-normal md:leading-[1.8rem] opacity-60 ">
               Use this section to describe your company{" "}
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className="lg:flex hidden gap-4 ">
             <div className="bg-blueC flex justify-center items-center cursor-pointer p-[1.75rem] rounded-full opacity-50 transition-all duration-300 ease-in-out hover:opacity-100">
               <FiArrowLeft
                 fontSize="2rem"
@@ -445,11 +454,12 @@ function App() {
                 fontSize="2rem"
                 color="#fff"
                 onClick={rightShiftHandler}
+                className=""
               />
             </div>
           </div>
         </div>
-        <div className="w-full flex gap-[3rem]">
+        <div className="w-full lg:flex hidden gap-[3rem]">
           {datas.map((val, i) => {
             return (
               <div
@@ -487,24 +497,44 @@ function App() {
             );
           })}
         </div>
+        <div className="w-full lg:hidden flex items-center gap-3 md:gap-[3rem]">
+          <div className="bg-blueC flex justify-center items-center cursor-pointer p-4 lg:p-[1.75rem] rounded-full opacity-50 transition-all duration-300 ease-in-out hover:opacity-100">
+            <FiArrowLeft
+              fontSize="2rem"
+              color="#fff"
+              onClick={leftShiftHandler}
+            />
+          </div>
+          <Card data={datas[index]} />
+          <div
+            className={` bg-blueC flex justify-center items-center cursor-pointer p-4 lg:p-[1.75rem] rounded-full transition-all duration-300 ease-in-out hover:opacity-100 opacity-50`}
+          >
+            <FiArrowRight
+              fontSize="2rem"
+              color="#fff"
+              onClick={rightShiftHandler}
+            />
+          </div>
+        </div>
       </section>
 
-      <section className="max-w-[85vw] my-[6rem] h-[65vh] w-full mx-auto flex justify-between bg-[#232038] rounded-[56px] py-[4rem] px-[7rem]">
-        <div className="w-[40%] flex flex-col justify-between">
-          <h1 className="text-[3rem] font-medium leading-[4rem] capitalize text-white">
+      <section className="max-w-[90vw] md:flex hidden lg:max-w-[85vw] my-[6rem] md:h-[50vh] lg:h-[65vh] w-full mx-auto  flex-wrap md:flex-nowrap justify-between bg-[#232038] rounded-[56px] lg:py-[4rem] py-8 px-12 lg:px-[7rem]">
+        <div className=" lg:w-[40%] xl-w-1/2 flex flex-col justify-between">
+          <h1 className= "text-lg md:text-2xl lg:text-4xl xl:text-[4rem] font-medium capitalize text-white">
             start your journey with us now
           </h1>
-          <button className="justify-self-end capitalize bg-blueC text-white w-1/2 py-[0.9rem] px-[2rem] rounded-[4rem] text-[1.5rem] border-none font-medium shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-90">
+          <button className="justify-self-end capitalize bg-blueC text-white w-2/3 xl:w-1/2 py-[0.9rem] px-[2rem] rounded-[4rem] text-base xl:text-[1.5rem] border-none font-medium shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-90">
             Start Now
           </button>
         </div>
-        <div className="bg-[#e0ff22] rounded-full flex items-center justify-center px-[6.8%]">
+        <div className="bg-[#e0ff22] place-self-center rounded-full flex items-center justify-center xl:h-[80%]  lg:h-[100%] h-[80%] px-2 lg:px-[6.8%] xl:px-[8.8%]">
           <svg
             width="66"
             height="95"
             viewBox="0 0 66 95"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="w-[50%] lg:w-[100%]"
           >
             <path
               d="M51.7108 0.404422C52.2891 0.739688 52.7366 1.26117 52.9802 1.88366C53.2239 2.50616 53.2492 3.19288 53.0521 3.83164L42.41 38.411H62.0456C62.6226 38.4108 63.1871 38.5796 63.6693 38.8965C64.1516 39.2134 64.5304 39.6646 64.7592 40.1943C64.9879 40.7241 65.0566 41.3093 64.9566 41.8776C64.8565 42.4459 64.5923 42.9725 64.1965 43.3923L16.9245 93.6187C16.4671 94.1051 15.8585 94.4222 15.1978 94.5184C14.5371 94.6146 13.8633 94.4841 13.2862 94.1483C12.7091 93.8125 12.2628 93.2911 12.02 92.6691C11.7772 92.0472 11.7522 91.3613 11.9492 90.7233L22.5913 56.138H2.95567C2.37863 56.1382 1.81415 55.9695 1.33192 55.6526C0.849685 55.3357 0.470808 54.8845 0.242059 54.3547C0.0133105 53.825 -0.055296 53.2398 0.0447084 52.6715C0.144713 52.1032 0.408949 51.5766 0.804801 51.1567L48.0767 0.930322C48.5336 0.444598 49.1413 0.127695 49.8011 0.0311421C50.4608 -0.0654111 51.1339 0.064063 51.7108 0.398513V0.404422Z"
@@ -516,6 +546,7 @@ function App() {
             height="82"
             viewBox="0 0 136 82"
             fill="none"
+            className="w-[50%] lg:w-[100%]"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -526,11 +557,11 @@ function App() {
         </div>
       </section>
 
-      <section className="max-w-[85vw] my-[8rem] mx-auto w-full grid grid-cols-2 gap-[2rem] ">
-        <div className="flex flex-col gap-[1rem]">
+      <section className="max-w-[85vw] my-10 xl:my-[8rem] mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-[2rem] ">
+        <div className="flex flex-col gap-[1rem] order-2 md:order-1">
           <div className="flex gap-4 items-center justify-between border-t-[2px] pt-4">
             {" "}
-            <h1 className="text-[1.25rem] font-normal leading-[2.2rem]">
+            <h1 className=" text-xs  lg:text-base xl:text-[1.25rem] font-normal md:leading-[2.2rem]">
               How do i sign up for the project?
             </h1>
             <svg
@@ -549,7 +580,7 @@ function App() {
           </div>
           <div className="flex gap-4 items-center justify-between border-t-[2px] pt-4">
             {" "}
-            <h1 className="text-[1.25rem] font-normal leading-[2.2rem]">
+            <h1 className="text-xs lg:text-base xl:text-[1.25rem] font-normal md:leading-[2.2rem]">
               What thing that i should prepare before starting?
             </h1>{" "}
             <svg
@@ -568,7 +599,7 @@ function App() {
           </div>
           <div className="flex gap-4 items-center justify-between border-t-[2px] pt-4 border-b-[2px] pb-[1rem]">
             {" "}
-            <h1 className="text-[1.25rem] font-normal leading-[2.2rem]">
+            <h1 className="text-xs  lg:text-base xl:text-[1.25rem] font-normal md:leading-[2.2rem]">
               Does my company need help for marketing advices?
             </h1>
             <svg
@@ -586,27 +617,27 @@ function App() {
             </svg>
           </div>
         </div>
-        <div className="flex flex-col gap-4 justify-center w-[80%]">
-          <h1 className="text-[2.5rem] font-medium leading-[3.5rem] capitalize ">
+        <div className="flex flex-col order-1 md:order-2 gap-2 md:gap-4 justify-center w-full md:w-[80%]">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] text-center md:text-start font-medium leading-[3.5rem] capitalize ">
             How we can help you?
           </h1>
-          <p className="text-[1.25rem] font-normal leading-[2.2rem] opacity-60">
+          <p className="text-xs  lg:text-base xl:text-[1.25rem] font-normal text-center md:text-start lg:leading-[2.2rem] opacity-60">
             Follow our newsletter. We will regulary update our latest project
             and availability.
           </p>
-          <div className="flex gap-4">
+          <div className="flex lg:flex-row flex-col items-center gap-2 lg:gap-4">
             <input
               type="email"
               placeholder="Enter your Email"
-              className="w-[67%] p-4 border-none rounded-[70px] text-base font-medium mb-4 bg-[#fafafa] flex-grow-0"
+              className="lg:w-[67%] w-[70%] py-2 px-3 lg:p-4 border-none rounded-[70px] text-[0.7rem] md:text-sm xl:text-base font-medium bg-[#fafafa] flex-grow-0"
             />
-            <button className="p-0 h-[53px] w-[30%] border-none rounded-[70px] text-base font-medium text-white bg-blueC shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
+            <button className="px-2 lg:p-0 w-[40%] py-2 md:py-3 lg:h-[53px] lg:w-[30%] border-none rounded-[70px] text-[0.7rem] md:text-sm xl:text-base font-medium text-white bg-blueC shadow-3xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
               Let's Talk
             </button>
           </div>
           <a
             href="/"
-            className="underline text-[18px] flex items-center font-semibold text-blueC place-self-start z-10 cursor-pointer transition-all duration-300 ease-in-out hover:text-black"
+            className="underline text-xs md:text-sm xl:text-[18px] flex items-center font-semibold text-blueC place-self-start z-10 cursor-pointer transition-all duration-300 ease-in-out hover:text-black"
           >
             More FAQ <BsArrowRightShort />
           </a>
