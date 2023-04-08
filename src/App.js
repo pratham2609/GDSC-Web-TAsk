@@ -203,11 +203,13 @@ function App() {
       setIndex((index + 1) % datas.length);
     }
   }
+  const [isOpen, setIsOpen] = useState(false);
+
 
   return (
-    <main className="relative">
-      <Navbar />
-
+    <main className='relative'>
+      <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+<div className={`${isOpen ? "blur-sm" : "blur-none" }`}>
       <Hero />
 
       <section className="py-[0.1rem] px-0 my-[2rem] mx-0 w-full bg-[#f5f5f5]">
@@ -645,6 +647,7 @@ function App() {
       </section>
 
       <Footer />
+    </div>
     </main>
   );
 }

@@ -1,12 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import "./Components.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx"
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar({isOpen, setIsOpen}) {
   const toggle = () => setIsOpen(!isOpen);
   const hide = () => setIsOpen(false);
   const show = () => setIsOpen(true);
+  useEffect(() => {
+    const nav = document.getElementById("nav");
+    const navHeight = nav.getBoundingClientRect().height;
+    window.addEventListener("scroll", () => {
+      const scrollHeight = window.pageYOffset;
+      if (scrollHeight > navHeight) {
+        nav.classList.add("fixed");
+      } else {
+        nav.classList.remove("fixed");        
+      }
+    });
+  }, []); 
   function useOutsideAlerter(ref) {
     useEffect(() => {
       /**
@@ -29,7 +40,7 @@ export default function Navbar() {
   useOutsideAlerter(uref);
   return (
     <nav>
-      <div className="max-w-[100vw] pr-5 md:px-[6%] py-1 lg:py-3 w-full flex justify-between items-center bg-white rounded-xl shadow-3xl">
+      <div id='nav' className="max-w-[100vw] z-40 transition-all duration-300 pr-5 md:px-[6%] py-1 lg:py-3 w-full flex justify-between items-center rounded-xl shadow-3xl">
         <div className="xl:w-1/2 flex justify-between gap-1 lg:gap-2 items-center">
           <div className="flex items-center xl:scale-100 lg:scale-90 md:scale-75 scale-50 justify-start place-self-start">
             <svg
@@ -67,7 +78,7 @@ export default function Navbar() {
 
 
       </div>
-      <div ref={uref} className={`${isOpen ? "flex" : "hidden"} py-10 px-4 gap-3 fixed w-2/3  bg-white z-50 transition-all duration-300 ease-linear flex-col flex items-start top-0 left-0 h-screen`}>
+      <div ref={uref} id='nav' className={`${isOpen ? "flex" : "hidden"} py-10 px-4 gap-3 fixed w-2/3  bg-white z-50 transition-all duration-300 ease-linear flex-col flex items-start top-0 left-0 h-screen`}>
         <button onClick={toggle}><RxCross2 className={`${isOpen ? "block" : "hidden"} block md:hidden`} /></button>
         <a href='/' onClick={toggle} onBlur={hide} onFocus={show} className=" text-sm xl:text-base font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">How it Works</a>
         <a href='/' onClick={toggle} onBlur={hide} onFocus={show} className="text-sm xl:text-base font-medium font-gen transition-all duration-300 ease-in-out hover:text-blueC hover:scale-[1.1]">Our Work</a>
