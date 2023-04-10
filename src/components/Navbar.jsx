@@ -40,7 +40,7 @@ export default function Navbar({isOpen, setIsOpen}) {
   useOutsideAlerter(uref);
   return (
     <nav>
-      <div id='nav' className="max-w-[100vw] z-40 transition-all duration-300 pr-5 md:px-[6%] py-1 lg:py-3 w-full flex justify-between items-center rounded-xl shadow-3xl">
+      <div id='nav' className="max-w-[100vw] z-40 transition-all duration-300 pr-5 md:px-[6%] py-1 lg:py-3 w-full flex justify-between bg-white items-center rounded-xl shadow-3xl">
         <div className="xl:w-1/2 flex justify-between gap-1 lg:gap-2 items-center">
           <div className="flex items-center xl:scale-100 lg:scale-90 md:scale-75 scale-50 justify-start place-self-start">
             <svg
